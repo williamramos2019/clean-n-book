@@ -83,7 +83,7 @@ export function AppointmentForm() {
       }
 
       // Send WhatsApp notification
-      const { data: notificationData } = await supabase.functions.invoke('send-whatsapp-notification', {
+      const { data: notificationData, error: notificationError } = await supabase.functions.invoke('send-whatsapp-notification', {
         body: {
           phone: data.phone,
           date: format(data.date, "dd 'de' MMMM 'de' yyyy", { locale: ptBR }),
@@ -93,13 +93,15 @@ export function AppointmentForm() {
         },
       });
 
-      // Open WhatsApp with pre-filled message
-      if (notificationData?.whatsappUrl) {
-        window.open(notificationData.whatsappUrl, '_blank');
-      }
-
       setShowSuccess(true);
       form.reset();
+
+      // Open WhatsApp with pre-filled message after showing success
+      if (notificationData?.whatsappUrl) {
+        setTimeout(() => {
+          window.location.href = notificationData.whatsappUrl;
+        }, 1500);
+      }
       
       setTimeout(() => {
         setShowSuccess(false);

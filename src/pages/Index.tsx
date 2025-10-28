@@ -13,7 +13,7 @@ const Index = () => {
               <div className="absolute inset-0 blur-xl bg-primary/30" />
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent">
-              Clean Pro
+              Auto Limpeza Pro
             </h1>
           </div>
         </div>
@@ -89,7 +89,7 @@ const Index = () => {
       <footer className="py-8 px-4 border-t border-border bg-muted/30">
         <div className="container mx-auto max-w-2xl text-center">
           <p className="text-sm text-muted-foreground mb-2">
-            Clean Pro - Higienização de Estofados
+            Auto Limpeza Pro - Higienização de Estofados
           </p>
           <p className="text-sm text-muted-foreground">
             WhatsApp: (31) 98025-2821

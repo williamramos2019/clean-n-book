@@ -34,7 +34,7 @@ export function AppointmentForm() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      duration: "120",
+      duration: "90",
       phone: "",
       observations: "",
     },
@@ -221,21 +221,21 @@ export function AppointmentForm() {
           name="duration"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-base font-semibold">Tempo Estimado</FormLabel>
+              <FormLabel className="text-base font-semibold">Tipo de Sujeira</FormLabel>
               <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>
                   <SelectTrigger className="h-14 text-base border-2 hover:border-primary transition-colors">
                     <div className="flex items-center">
                       <Sparkles className="mr-3 h-5 w-5" />
-                      <SelectValue />
+                      <SelectValue placeholder="Selecione o tipo de sujeira" />
                     </div>
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="60">1 hora (limpeza rápida)</SelectItem>
-                  <SelectItem value="120">2 horas (limpeza padrão)</SelectItem>
-                  <SelectItem value="180">3 horas (limpeza completa)</SelectItem>
-                  <SelectItem value="240">4 horas (limpeza profunda)</SelectItem>
+                  <SelectItem value="90">Sujeira Leve (1h30)</SelectItem>
+                  <SelectItem value="165">Sujeira Média (2h45)</SelectItem>
+                  <SelectItem value="180">Sujeira Pesada (3h)</SelectItem>
+                  <SelectItem value="240">Sujeira Pesada Intensa (4h)</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
